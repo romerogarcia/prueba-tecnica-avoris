@@ -1,0 +1,32 @@
+
+<section class="hero" aria-roledescription="carrusel" aria-label="Destacados">
+  <swiper-container
+    #swiperEl
+    class="hero__swiper"
+    pagination="true"
+    pagination-clickable="true"
+    space-between="0"
+    [injectStyles]="paginationStyles"
+  >
+    @for (slide of slides; track $index) {
+      <swiper-slide class="hero__slide">
+        <img class="hero__bg" [src]="slide.image" alt="">
+        <div class="hero__overlay" aria-hidden="true"></div>
+
+        <div class="hero__content">
+          <div class="hero__pin" aria-hidden="true"></div>
+          <h1 class="hero__title">{{ slide.title }}</h1>
+          <p class="hero__subtitle">{{ slide.subtitle }}</p>
+          <button type="button" class="hero__cta">Más información</button>
+        </div>
+      </swiper-slide>
+    }
+  </swiper-container>
+
+  <button type="button" class="hero__arrow hero__arrow--prev" aria-label="Anterior" (click)="slidePrev()">
+    <fa-icon [icon]="faChevronLeft" aria-hidden="true"></fa-icon>
+  </button>
+  <button type="button" class="hero__arrow hero__arrow--next" aria-label="Siguiente" (click)="slideNext()">
+    <fa-icon [icon]="faChevronRight" aria-hidden="true"></fa-icon>
+  </button>
+</section>

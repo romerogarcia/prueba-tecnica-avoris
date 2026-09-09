@@ -1,0 +1,29 @@
+<article class="card">
+  <div class="card__media">
+    <img class="card__image" [src]="imageUrl()" alt="Descubre Bangkok con Iberojet">
+    <span class="card__badge">Quads</span>
+  </div>
+
+  <div class="card__body">
+    <p class="card__place">Marruecos, África · 9 días</p>
+    <h3 class="card__title">Descubre Bangkok con Iberojet</h3>
+  </div>
+
+  <div class="card__footer">
+    <div class="card__footerTop">
+      <button type="button" class="card__detailsLink" (click)="openBreakdown()">
+        Ver desglose
+        <fa-icon [icon]="faChevronDown" aria-hidden="true"></fa-icon>
+      </button>
+
+      <div class="card__price">
+        <span class="card__priceLabel">Desde</span>
+        <span class="card__priceValue">248,00 €</span>
+      </div>
+
+      <wl-card-price-details [open]="breakdownOpen()" (close)="closeBreakdown()" />
+    </div>
+
+    <button type="button" class="card__reserveBtn">Reservar</button>
+  </div>
+</article>

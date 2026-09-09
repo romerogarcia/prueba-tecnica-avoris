@@ -1,0 +1,11 @@
+/* El tamaño se controla desde fuera: pon width/height (o font-size + width:1em)
+   en el elemento <wl-icon> donde lo uses, ej. .header__toggle wl-icon { width: 24px; height: 24px; } */
+:host {
+  display: inline-flex;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}

@@ -1,0 +1,28 @@
+:root {
+  --color-orange: #FF8F50;
+  --color-purple: #622F60;
+  --color-bg-pastel: #FBF6F4; 
+  --color-text: #1A1A1A;
+  --color-text-secondary: #8A8A8D;
+  --color-white: #FFFFFF;
+
+  --font-base: 'Nunito', system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: 'Syne', var(--font-base);
+
+  --radius-pill: 999px;
+  --radius-card: 8px;
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-base);
+}

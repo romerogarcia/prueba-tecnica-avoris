@@ -1,0 +1,38 @@
+.footer {
+   border-top: 1px solid rgb(221, 221, 221);
+
+   &__brandLogo {
+      align-items: center;
+      background-color: var(--color-bg-pastel);
+      display: flex;
+      justify-content: start;
+      padding: 48px 32px;
+
+      @media (min-width: 1023px) {
+         justify-content: center;
+      }
+   }
+
+   &__logo {
+      height: 32px;
+      width: auto;
+   }
+
+   &__legal {
+      align-items: center;
+      background-color: #E2D7DD;
+      display: flex;
+      justify-content: center;
+      padding: 16px 0;
+      text-align: center;
+   }
+
+   &__copyText {
+      color: #622F60;
+      font-size: 14px;
+      font-style: bold;
+      font-weight: 700;
+      margin: 0;
+   }
+
+}

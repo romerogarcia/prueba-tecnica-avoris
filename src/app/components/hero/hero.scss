@@ -1,0 +1,125 @@
+.hero {
+   height: 400px;
+   overflow: hidden;
+   position: relative;
+
+   &__swiper {
+      display: block;
+      height: 100%;
+      width: 100%;
+
+      --swiper-pagination-color: var(--color-orange);
+      --swiper-pagination-bullet-inactive-color: var(--color-white);
+      --swiper-pagination-bullet-inactive-opacity: 0.6;
+      /* El tamaño del punto (10px) ahora se fija en hero.ts (paginationStyles),
+         porque la caja del bullet ya no es el punto en sí, sino el área clicable
+         de 24x24px que lo envuelve. */
+      --swiper-pagination-bullet-horizontal-gap: 4px;
+
+      @media (min-width: 744px) {
+         --swiper-pagination-bottom: 32px;
+      }
+   }
+
+   &__slide {
+      height: 100%;
+      position: relative;
+   }
+
+   &__bg {
+      display: block;
+      height: 100%;
+      object-fit: cover;
+      object-position: left center;
+      width: 100%;
+   }
+
+   &__overlay {
+      background: rgba(0, 0, 0, 0.45);
+      inset: 0;
+      position: absolute;
+   }
+
+   &__content {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      inset: 0;
+      padding: 24px;
+      position: absolute;
+      text-align: center;
+      justify-content: center;
+   }
+
+   &__title {
+      color: var(--color-white);
+      font-family: var(--font-display);
+      font-size: 34px;
+      font-weight: 700;
+      margin: 0;
+      max-width: 230px;
+         @media (min-width: 744px) {
+            max-width: none;
+         }
+         @media (min-width: 1444px) {
+            font-size: 30px;
+         }
+   }
+
+   &__subtitle {
+      color: var(--color-white);
+      margin: 12px 0 0;
+      max-width: 230px;
+      font-size: 24px;
+         @media (min-width: 744px) {
+            max-width: none;
+         }
+          @media (min-width: 1444px) {
+            font-size: 20px;
+         }
+   }
+
+   &__cta {
+      background-color: var(--color-orange);
+      border: none;
+      border-radius: var(--radius-pill);
+      color: var(--color-text);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 20px;
+      font-weight: 600;
+      margin-top: 48px;
+      padding: 14px 32px;
+      width: 246px;
+
+      @media (min-width: 744px) {
+            width: 200px;
+            font-size: 16px;
+         }
+   }
+
+   &__arrow {
+      align-items: center;
+   background-color:#ccbccc;
+      border: none;
+      border-radius: 2px;
+      color: var(--color-white);
+      cursor: pointer;
+      display: flex;
+      height: 40px;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      z-index: 1;
+
+      &--prev {
+         left: 0;
+      }
+
+      &--next {
+         right: 0;
+      }
+   }
+}
