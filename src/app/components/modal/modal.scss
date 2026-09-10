@@ -1,7 +1,3 @@
-// El host no debe contar como un elemento más en el layout de quien lo use
-// (p.ej. el flex de .card__footerTop): con display:contents desaparece de
-// ese cálculo y solo quedan sus hijos, que además son position:fixed, así
-// que tampoco ocupan espacio en el flujo normal.
 :host {
    display: contents;
 }

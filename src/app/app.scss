@@ -1,6 +1,3 @@
-/* Wrapper de layout general: hace que el footer se quede siempre pegado
-   abajo, tenga el contenido que tenga <main> en medio (patrón "sticky footer"). */
-
 :host {
   display: flex;
   flex-direction: column;

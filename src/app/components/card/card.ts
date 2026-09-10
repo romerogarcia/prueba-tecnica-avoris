@@ -3,10 +3,6 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { CardPriceDetails } from '../card-price-details/card-price-details';
 
-// Card "genérica" de momento: todo el texto sigue hardcodeado en card.html
-// (es el mismo para todas), solo la imagen varía de una card a otra — de ahí
-// este único input. Cuando montemos el grid con datos reales, esto se sustituye
-// por un input `destination: Destination` completo (icon()/badge/precio dinámicos).
 @Component({
   selector: 'wl-card',
   imports: [FaIconComponent, CardPriceDetails],

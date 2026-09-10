@@ -2,8 +2,8 @@ import { NgTemplateOutlet } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { Tooltip } from '../tooltip/tooltip';
-import { Modal } from '../modal/modal';
+import { Tooltip } from '../../../components/tooltip/tooltip';
+import { Modal } from '../../../components/modal/modal';
 
 export interface FilterState {
   activityTags: string[]; // ej. ['parapente', 'buceo']

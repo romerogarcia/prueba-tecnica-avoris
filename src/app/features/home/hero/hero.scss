@@ -11,9 +11,6 @@
       --swiper-pagination-color: var(--color-orange);
       --swiper-pagination-bullet-inactive-color: var(--color-white);
       --swiper-pagination-bullet-inactive-opacity: 0.6;
-      /* El tamaño del punto (10px) ahora se fija en hero.ts (paginationStyles),
-         porque la caja del bullet ya no es el punto en sí, sino el área clicable
-         de 24x24px que lo envuelve. */
       --swiper-pagination-bullet-horizontal-gap: 4px;
 
       @media (min-width: 744px) {

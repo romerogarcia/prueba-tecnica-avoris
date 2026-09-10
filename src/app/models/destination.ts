@@ -1,17 +1,16 @@
-// Modelo compartido entre results.ts (que genera/filtra la lista) y card.ts (que la pinta).
 export interface Destination {
   id: string;
-  category: string; // ej. "Asia" (el h3 que agrupa la sección en results)
-  place: string; // ej. "Marruecos, África · 6 días"
+  category: string;
+  place: string; 
   title: string;
   imageUrl: string;
   price: number;
   isBundle: boolean;
-  activityTags: string[]; // para el filtrado por checkbox: ['parapente', 'buceo', ...]
+  activityTags: string[];
   priceBreakdown: {
     priceBeforeTax: number;
     tax: number;
-    extra: number; // el concepto "Lorem ipsum" del mockup, renómbralo si quieres
+    extra: number;
     finalPrice: number;
   };
 }

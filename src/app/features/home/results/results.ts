@@ -1,7 +1,7 @@
 import { Component, computed, signal } from '@angular/core';
 import { FilterState } from '../filters/filters';
-import { Card } from './card/card';
-import { Destination } from '../../models/destination';
+import { Card } from '../../../components/card/card';
+import { Destination } from '../../../models/destination';
 
 @Component({
   selector: 'wl-results',

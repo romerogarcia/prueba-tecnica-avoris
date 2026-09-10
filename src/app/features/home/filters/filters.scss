@@ -13,15 +13,10 @@
       padding: 0 91px 0;
    }
 
-   // A partir de aqui (tablet grande) el boton se alinea a la izquierda en
-   // vez de centrado, para que coincida con el borde izquierdo del grid de
-   // resultados.
    @media (min-width: 900px) {
       justify-content: flex-start;
    }
 
-   // Desktop: el panel de filtros deja de necesitar el boton (diseño final
-   // aun por definir para ese breakpoint), se oculta.
    @media (min-width: 1200px) {
       display: none;
    }
@@ -49,10 +44,6 @@
    width: 18px;
 }
 
-// Desde 1200px el panel deja de ser un modal y pasa a ser un aside fijo,
-// siempre visible, a la izquierda de wl-results (mismo look que la cabecera
-// del wl-modal: fondo pastel + borde inferior en el header, blanco en el
-// contenido). Antes de 1200px no ocupa espacio ni se pinta.
 .filters__sidebar {
    display: none;
 
@@ -62,8 +53,6 @@
       box-shadow: 0 12px 32px rgba(26, 26, 26, 0.16);
       display: block;
       flex-shrink: 0;
-      // Alinea la parte de arriba del aside con la del grid de cards
-      // (.results tiene padding-top:32px desde 1200px).
       margin-top: 32px;
       overflow: hidden;
       width: 264px;
