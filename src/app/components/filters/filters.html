@@ -1,0 +1,198 @@
+<!--
+  wl-filters tiene dos presentaciones que comparten el mismo formulario
+  (definido una sola vez en #filtersContent y reutilizado con
+  ngTemplateOutlet, para no duplicar el acordeón):
+  - Hasta 1199px: botón "Ver filtros" + wl-modal (variante floatLeft).
+  - Desde 1200px: aside estático siempre visible, a la izquierda de
+    wl-results (ver .filters__sidebar en filters.scss). CSS decide cuál de
+    las dos se ve en cada ancho, las dos existen siempre en el DOM.
+  El :host es display:contents (ver filters.scss), así que estos elementos
+  se comportan como hijos directos de quien use <wl-filters />, sin una
+  caja extra de por medio.
+-->
+<ng-template #filtersContent>
+  <form class="filters" (submit)="onSubmit($event)">
+    <div class="filters__section">
+      <button
+        type="button"
+        class="filters__row"
+        [class.filters__row--active]="isOpen('destinos')"
+        [attr.aria-expanded]="isOpen('destinos')"
+        aria-controls="filters-panel-destinos"
+        (click)="toggleSection('destinos')"
+      >
+        <span class="filters__rowIcon" style="--row-icon-url: url('/icons/icon-destination.svg')" aria-hidden="true"></span>
+        <span class="filters__rowLabel">Destinos</span>
+        <fa-icon
+          class="filters__rowChevron"
+          [icon]="isOpen('destinos') ? faChevronDown : faChevronRight"
+          aria-hidden="true"
+        ></fa-icon>
+      </button>
+
+      @if (isOpen('destinos')) {
+        <fieldset class="filters__fieldset" id="filters-panel-destinos">
+          <legend class="sr-only">Destinos</legend>
+
+          <div class="filters__checkboxList">
+            @for (option of destinationOptions; track $index) {
+              <label class="filters__checkbox">
+                <input type="checkbox" [checked]="option.checked" />
+                <span class="filters__checkboxLabel">{{ option.label }}</span>
+                <wl-tooltip text="Lorem ipsum">
+                  <img class="filters__checkboxInfo" src="/icons/icon-info.svg" alt="">
+                </wl-tooltip>
+              </label>
+            }
+          </div>
+        </fieldset>
+      }
+    </div>
+
+    <div class="filters__section">
+      <button
+        type="button"
+        class="filters__row"
+        [class.filters__row--active]="isOpen('aventura')"
+        [attr.aria-expanded]="isOpen('aventura')"
+        aria-controls="filters-panel-aventura"
+        (click)="toggleSection('aventura')"
+      >
+        <span class="filters__rowIcon" style="--row-icon-url: url('/icons/icon-adventure.svg')" aria-hidden="true"></span>
+        <span class="filters__rowLabel">Aventura</span>
+        <fa-icon
+          class="filters__rowChevron"
+          [icon]="isOpen('aventura') ? faChevronDown : faChevronRight"
+          aria-hidden="true"
+        ></fa-icon>
+      </button>
+
+      @if (isOpen('aventura')) {
+        <fieldset class="filters__fieldset" id="filters-panel-aventura">
+          <legend class="sr-only">Aventura</legend>
+
+          <div class="filters__checkboxList">
+            @for (activity of activities; track activity.label) {
+              <label class="filters__checkbox">
+                <input type="checkbox" [checked]="activity.checked" />
+                <span class="filters__checkboxLabel">{{ activity.label }}</span>
+                <wl-tooltip text="Lorem ipsum">
+                  <img class="filters__checkboxInfo" src="/icons/icon-info.svg" alt="">
+                </wl-tooltip>
+              </label>
+            }
+          </div>
+
+          <button type="button" class="filters__moreLink">Ver 21 más</button>
+        </fieldset>
+      }
+    </div>
+
+    <div class="filters__section">
+      <button
+        type="button"
+        class="filters__row"
+        [class.filters__row--active]="isOpen('alojamiento')"
+        [attr.aria-expanded]="isOpen('alojamiento')"
+        aria-controls="filters-panel-alojamiento"
+        (click)="toggleSection('alojamiento')"
+      >
+        <span class="filters__rowIcon" style="--row-icon-url: url('/icons/icon-house.svg')" aria-hidden="true"></span>
+        <span class="filters__rowLabel">Alojamiento</span>
+        <fa-icon
+          class="filters__rowChevron"
+          [icon]="isOpen('alojamiento') ? faChevronDown : faChevronRight"
+          aria-hidden="true"
+        ></fa-icon>
+      </button>
+
+      @if (isOpen('alojamiento')) {
+        <fieldset class="filters__fieldset" id="filters-panel-alojamiento">
+          <legend class="sr-only">Alojamiento</legend>
+
+          <div class="filters__checkboxList">
+            @for (option of accommodationOptions; track $index) {
+              <label class="filters__checkbox">
+                <input type="checkbox" [checked]="option.checked" />
+                <span class="filters__checkboxLabel">{{ option.label }}</span>
+                <wl-tooltip text="Lorem ipsum">
+                  <img class="filters__checkboxInfo" src="/icons/icon-info.svg" alt="">
+                </wl-tooltip>
+              </label>
+            }
+          </div>
+        </fieldset>
+      }
+    </div>
+
+    <div class="filters__section filters__section--last">
+      <button
+        type="button"
+        class="filters__row"
+        [class.filters__row--active]="isOpen('precio')"
+        [attr.aria-expanded]="isOpen('precio')"
+        aria-controls="filters-panel-precio"
+        (click)="toggleSection('precio')"
+      >
+        <span class="filters__rowIcon" style="--row-icon-url: url('/icons/icon-price-color.svg')" aria-hidden="true"></span>
+        <span class="filters__rowLabel">Precio</span>
+        <fa-icon
+          class="filters__rowChevron"
+          [icon]="isOpen('precio') ? faChevronDown : faChevronRight"
+          aria-hidden="true"
+        ></fa-icon>
+      </button>
+
+      @if (isOpen('precio')) {
+        <fieldset class="filters__fieldset" id="filters-panel-precio">
+          <legend class="sr-only">Precio</legend>
+
+          <div class="filters__priceInputs">
+            <label class="filters__priceField">
+              <span class="filters__priceIcon" aria-hidden="true"></span>
+              <input type="number" placeholder="Mínimo" class="filters__priceInput" />
+            </label>
+            <label class="filters__priceField">
+              <span class="filters__priceIcon" aria-hidden="true"></span>
+              <input type="number" placeholder="Máximo" class="filters__priceInput" />
+            </label>
+          </div>
+        </fieldset>
+      }
+    </div>
+  </form>
+</ng-template>
+
+<!-- Hasta 1199px: botón + modal (se oculta por CSS desde 1200px). -->
+<div class="filters__toggleWrap">
+  <button
+    type="button"
+    class="filters__toggleBtn"
+    (click)="toggle()"
+    [attr.aria-expanded]="open()"
+    aria-controls="filters-modal"
+  >
+    <img class="filters__toggleIcon" src="/icons/icon-filter.svg" alt="">
+    Ver filtros
+  </button>
+</div>
+
+<wl-modal
+  id="filters-modal"
+  [open]="open()"
+  heading="Filtrar mi búsqueda"
+  [floatLeft]="true"
+  (close)="toggle()"
+>
+  <ng-container [ngTemplateOutlet]="filtersContent"></ng-container>
+</wl-modal>
+
+<!-- Desde 1200px: aside estático siempre visible (se oculta por CSS hasta 1199px). -->
+<aside class="filters__sidebar" aria-label="Filtrar mi búsqueda">
+  <div class="filters__sidebarHeader">
+    <h3 class="filters__sidebarHeading">Filtrar mi búsqueda</h3>
+  </div>
+  <div class="filters__sidebarContent">
+    <ng-container [ngTemplateOutlet]="filtersContent"></ng-container>
+  </div>
+</aside>

@@ -1,113 +1,70 @@
+// El host de wl-card-price-details tampoco debe contar en el layout (mismo
+// motivo que wl-modal: .card__footerTop es un flex con space-between).
 :host {
    display: contents;
 }
 
-.breakdown__backdrop {
-   background-color: transparent;
-   inset: 0;
-   position: fixed;
-   z-index: 100;
+.breakdown__place {
+   align-items: baseline;
+   display: flex;
+   gap: 8px;
+   margin: 0 0 16px;
 }
 
-.breakdown {
-   background-color: var(--color-white);
+.breakdown__placeName {
+   color: var(--color-purple);
+   font-size: 18px;
+   line-height: 22px;
+   font-weight: 700;
+}
+
+.breakdown__placeDays {
+   color: var(--color-text);
+   font-size: 14px;
+   line-height: 24px;
+}
+
+.breakdown__details {
+   border-bottom: 1px solid #E0DEE3;
    display: flex;
    flex-direction: column;
-   inset: 0;
-   overflow-y: auto;
-   position: fixed;
-   z-index: 101;
+   gap: 16px;
+   padding-bottom: 16px;
+}
 
-   @media (min-width: 600px) {
-      border-radius: 12px;
-      box-shadow: 0 12px 32px rgba(26, 26, 26, 0.16);
-      inset: auto;
-      left: 0;
-      margin-top: 8px;
-      max-width: calc(100vw - 32px);
-      position: absolute;
-      top: 100%;
-      width: 320px;
-   }
+.breakdown__row {
+   color: var(--color-text);
+   display: flex;
+   font-size: 14px;
+   justify-content: space-between;
 
-   &__header {
-      align-items: center;
-      background-color: var(--color-bg-pastel);
-      display: flex;
-      justify-content: space-between;
-      padding: 16px;
-      border-bottom: 1px solid #E0DEE3;
-
-      @media (min-width: 600px) {
-         border-radius: 12px 12px 0 0;
-      }
-   }
-
-   &__heading {
-      color: var(--color-text);
+   @media (min-width: 744px) {
       font-size: 16px;
-      font-weight: 700;
-      margin: 0;
    }
+}
 
-   &__closeBtn {
-      background: none;
-      border: none;
-      color: var(--color-text);
-      cursor: pointer;
-      display: flex;
-      padding: 8px; // icono (16px) + padding = 32px de touch target (mínimo 24px)
-   }
-
-   &__content {
-      padding: 20px 16px;
-   }
-
-   &__place {
-      align-items: baseline;
-      display: flex;
-      gap: 8px;
-      margin: 0 0 16px;
-   }
-
-   &__placeName {
-      color: var(--color-purple);
+.breakdown__rowValue {
+   @media (min-width: 744px) {
       font-size: 18px;
-      line-height: 22px;
-      font-weight: 700;
    }
+}
 
-   &__placeDays {
-      color: var(--color-text);
-      font-size: 14px;
+.breakdown__totalPrice {
+   color: var(--color-text);
+   display: flex;
+   font-size: 16px;
+   font-weight: 700;
+   justify-content: space-between;
+   margin-top: 20px;
+
+   @media (min-width: 744px) {
+      font-size: 18px;
       line-height: 24px;
    }
+}
 
-   &__details {
-      border-bottom: 1px solid #E0DEE3;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding-bottom: 16px;
-   }
-
-   &__row {
-      color: var(--color-text);
-      display: flex;
-      font-size: 14px;
-      justify-content: space-between;
-   }
-
-   &__totalPrice {
-      color: var(--color-text);
-      display: flex;
-      font-size: 16px;
-      font-weight: 700;
-      justify-content: space-between;
-      padding: 0 16px;
-
-      @media (min-width: 600px) {
-         padding: 16px;
-      }
+.breakdown__totalValue {
+   @media (min-width: 744px) {
+      font-size: 22px;
    }
 }

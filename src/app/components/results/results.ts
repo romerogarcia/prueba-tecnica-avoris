@@ -1,11 +1,11 @@
 import { Component, computed, signal } from '@angular/core';
-import { Filters, FilterState } from './filters/filters';
+import { FilterState } from '../filters/filters';
 import { Card } from './card/card';
 import { Destination } from '../../models/destination';
 
 @Component({
   selector: 'wl-results',
-  imports: [Filters, Card],
+  imports: [Card],
   templateUrl: './results.html',
   styleUrl: './results.scss',
 })
@@ -14,6 +14,10 @@ export class Results {
   // a un JSON/servicio si prefieres). Con 6-9 sería suficiente para ver el filtrado funcionando.
   protected readonly destinations = signal<Destination[]>([]);
 
+  // TODO: de momento nadie escribe en esta signal (wl-filters no emite
+  // cambios todavía). Cuando el filtrado sea real, lo más limpio es que este
+  // estado viva en un servicio compartido (inyectable) entre wl-filters y
+  // wl-results, ya no son padre/hijo, así app.ts sigue sin lógica propia.
   protected readonly activeFilters = signal<FilterState>({
     activityTags: [],
     priceMin: null,
@@ -32,13 +36,6 @@ export class Results {
       return matchesTags && matchesMin && matchesMax;
     });
   });
-
-  // Solo relevante en tablet/móvil (el botón "Ver filtros").
-  protected readonly filtersOpen = signal(false);
-
-  protected toggleFilters(): void {
-    this.filtersOpen.update((open) => !open);
-  }
 
   protected onFiltersChange(filters: FilterState): void {
     this.activeFilters.set(filters);

@@ -1,15 +1,4 @@
 <section class="results">
-  <button
-    type="button"
-    class="results__filtersBtn"
-    (click)="toggleFilters()"
-    [attr.aria-expanded]="filtersOpen()"
-    aria-controls="results-filters"
-  >
-    <img class="results__filtersIcon" src="/icons/icon-filter.svg" alt="">
-    Ver filtros
-  </button>
-
   <div class="results__cardList">
     <wl-card imageUrl="/img/card-image-1.png" />
     <wl-card imageUrl="/img/card-image-2.png" />

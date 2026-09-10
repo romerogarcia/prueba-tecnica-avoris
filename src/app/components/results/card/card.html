@@ -16,12 +16,12 @@
         <fa-icon [icon]="faChevronDown" aria-hidden="true"></fa-icon>
       </button>
 
-      <div class="card__price">
-        <span class="card__priceLabel">Desde</span>
-        <span class="card__priceValue">248,00 €</span>
-      </div>
-
       <wl-card-price-details [open]="breakdownOpen()" (close)="closeBreakdown()" />
+    </div>
+
+    <div class="card__price">
+      <span class="card__priceLabel">Desde</span>
+      <span class="card__priceValue">248,00 €</span>
     </div>
 
     <button type="button" class="card__reserveBtn">Reservar</button>

@@ -1,0 +1,278 @@
+// El host de wl-filters no debe contar en el layout de quien lo use (mismo
+
+:host {
+   display: contents;
+}
+
+.filters__toggleWrap {
+   display: flex;
+   justify-content: center;
+   padding: 0 16px 0;
+
+   @media (min-width: 744px) {
+      padding: 0 91px 0;
+   }
+
+   // A partir de aqui (tablet grande) el boton se alinea a la izquierda en
+   // vez de centrado, para que coincida con el borde izquierdo del grid de
+   // resultados.
+   @media (min-width: 900px) {
+      justify-content: flex-start;
+   }
+
+   // Desktop: el panel de filtros deja de necesitar el boton (diseño final
+   // aun por definir para ese breakpoint), se oculta.
+   @media (min-width: 1200px) {
+      display: none;
+   }
+}
+
+.filters__toggleBtn {
+   align-items: center;
+   background-color: var(--color-white);
+   border: 1px solid #E0DEE3;
+   border-radius: var(--radius-pill);
+   color: var(--color-text);
+   cursor: pointer;
+   display: inline-flex;
+   font-family: inherit;
+   font-size: 20px;
+   font-weight: 600;
+   gap: 8px;
+   padding: 10px 20px;
+}
+
+.filters__toggleIcon {
+   display: inline-block;
+   flex-shrink: 0;
+   height: 18px;
+   width: 18px;
+}
+
+// Desde 1200px el panel deja de ser un modal y pasa a ser un aside fijo,
+// siempre visible, a la izquierda de wl-results (mismo look que la cabecera
+// del wl-modal: fondo pastel + borde inferior en el header, blanco en el
+// contenido). Antes de 1200px no ocupa espacio ni se pinta.
+.filters__sidebar {
+   display: none;
+
+   @media (min-width: 1200px) {
+      background-color: var(--color-white);
+      border-radius: 12px;
+      box-shadow: 0 12px 32px rgba(26, 26, 26, 0.16);
+      display: block;
+      flex-shrink: 0;
+      // Alinea la parte de arriba del aside con la del grid de cards
+      // (.results tiene padding-top:32px desde 1200px).
+      margin-top: 32px;
+      overflow: hidden;
+      width: 264px;
+   }
+}
+
+.filters__sidebarHeader {
+   background-color: var(--color-bg-pastel);
+   border-bottom: 1px solid #E0DEE3;
+   padding: 16px;
+}
+
+.filters__sidebarHeading {
+   color: var(--color-text);
+   font-size: 16px;
+   font-weight: 700;
+   margin: 0;
+}
+
+.filters__sidebarContent {
+   padding: 20px 16px;
+}
+
+.filters {
+   display: flex;
+   flex-direction: column;
+}
+
+.filters__section {
+   padding: 16px 0;
+
+   &:first-child {
+      padding-top: 0;
+   }
+
+   &--last {
+      border-bottom: none;
+      padding-bottom: 0;
+   }
+}
+
+.filters__row {
+   align-items: center;
+   background: none;
+   border: none;
+   color: var(--color-text);
+   cursor: pointer;
+   display: flex;
+   font-family: inherit;
+   gap: 12px;
+   padding: 4px 0;
+   width: 100%;
+
+   &--active {
+      color: var(--color-orange-text);
+   }
+}
+
+.filters__rowIcon {
+   display: inline-block;
+   flex-shrink: 0;
+   height: 20px;
+   width: 20px;
+}
+
+span.filters__rowIcon {
+   -webkit-mask-image: var(--row-icon-url);
+   -webkit-mask-position: center;
+   -webkit-mask-repeat: no-repeat;
+   -webkit-mask-size: contain;
+   background-color: #342E34;
+   mask-image: var(--row-icon-url);
+   mask-position: center;
+   mask-repeat: no-repeat;
+   mask-size: contain;
+}
+
+.filters__row--active span.filters__rowIcon {
+   background-color: var(--color-orange-text);
+}
+
+.filters__rowLabel {
+   color: inherit;
+   flex: 1;
+   font-size: 16px;
+   font-weight: 600;
+   text-align: left;
+}
+
+.filters__rowChevron {
+   color: inherit;
+   flex-shrink: 0;
+   font-size: 14px;
+}
+
+.filters__fieldset {
+   border: none;
+   margin: 0;
+   min-width: 0;
+   padding: 0;
+}
+
+.filters__checkboxList {
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+   margin-top: 12px;
+}
+
+.filters__checkbox {
+   align-items: center;
+   cursor: pointer;
+   display: flex;
+   gap: 8px;
+   margin: -6px 0;
+   padding: 12px 0;
+
+   input[type='checkbox'] {
+      appearance: none;
+      background-color: var(--color-orange);
+      background-position: center;
+      background-repeat: no-repeat;
+      border: 1.5px solid var(--color-purple);
+      border-radius: 4px;
+      cursor: pointer;
+      flex-shrink: 0;
+      height: 18px;
+      margin: 0;
+      width: 18px;
+
+      &:checked {
+         background-image: url('/icons/icon-check.svg');
+         border-color: var(--color-purple);
+      }
+
+      &:focus-visible {
+         outline: 2px solid var(--color-purple);
+         outline-offset: 2px;
+      }
+   }
+}
+
+.filters__checkboxLabel {
+   color: var(--color-text);
+   font-size: 14px;
+   line-height: 22px;
+   font-weight: 600;
+}
+
+.filters__checkboxInfo {
+   display: inline-block;
+   flex-shrink: 0;
+   height: 12px;
+   width: 12px;
+}
+
+.filters__moreLink {
+   background: none;
+   border: none;
+   color: var(--color-purple);
+   cursor: pointer;
+   font-family: inherit;
+   font-size: 14px;
+   margin: 16px 0 -6px;
+   padding: 6px 0;
+   text-decoration: underline;
+}
+
+.filters__priceInputs {
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+   margin-top: 8px;
+}
+
+.filters__priceField {
+   align-items: center;
+   border: 1px solid var(--color-purple);
+   border-radius: var(--radius-pill);
+   display: flex;
+   gap: 8px;
+   padding: 10px 16px;
+}
+
+.filters__priceIcon {
+   -webkit-mask-image: url('/icons/icon-price-color.svg');
+   -webkit-mask-position: center;
+   -webkit-mask-repeat: no-repeat;
+   -webkit-mask-size: contain;
+   background-color: var(--color-purple);
+   flex-shrink: 0;
+   height: 18px;
+   mask-image: url('/icons/icon-price-color.svg');
+   mask-position: center;
+   mask-repeat: no-repeat;
+   mask-size: contain;
+   width: 18px;
+}
+
+.filters__priceInput {
+   border: none;
+   color: var(--color-text-tertiary);
+   flex: 1;
+   font-family: inherit;
+   font-size: 14px;
+   min-width: 0;
+   outline: none;
+
+   &::placeholder {
+      color: var(--color-text-tertiary);
+   }
+}

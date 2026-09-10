@@ -7,8 +7,20 @@
 
 <main>
   <wl-hero />
-  <wl-title />
-  <wl-results />
+  <!-- position:relative: el panel de filtros (tablet+) se posiciona
+       absolute respecto a este contenedor para quedar al filo de abajo
+       del hero (que queda fuera, justo antes) y por encima del footer
+       (fuera de <main>, justo después). -->
+  <div class="app__content">
+    <wl-title />
+    <!-- Desde 1200px filtros y resultados van en fila, filtros a la
+         izquierda (wl-filters pasa de modal a aside estático, ver
+         filters.scss). Antes de eso este div no hace nada especial. -->
+    <div class="app__resultsRow">
+      <wl-filters />
+      <wl-results />
+    </div>
+  </div>
 </main>
 
 <wl-footer />

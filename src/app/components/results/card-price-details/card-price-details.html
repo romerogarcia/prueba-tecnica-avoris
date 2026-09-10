@@ -1,44 +1,31 @@
-@if (open()) {
-  <div class="breakdown__backdrop" (click)="close.emit()"></div>
+<wl-modal
+  [open]="open()"
+  heading="Desglose de precios"
+  [anchored]="true"
+  (close)="close.emit()"
+>
+  <p class="breakdown__place">
+    <span class="breakdown__placeName">Marruecos, África</span>
+    <span class="breakdown__placeDays">9 días</span>
+  </p>
 
-  <div
-    class="breakdown"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="breakdown-heading"
-  >
-    <div class="breakdown__header">
-      <h3 class="breakdown__heading" id="breakdown-heading">Desglose de precios</h3>
-      <button type="button" class="breakdown__closeBtn" aria-label="Cerrar" (click)="close.emit()">
-        <fa-icon [icon]="faXmark" aria-hidden="true"></fa-icon>
-      </button>
+  <div class="breakdown__details">
+    <div class="breakdown__row">
+      <span class="breakdown__rowLabel">Precio antes de impuestos</span>
+      <span class="breakdown__rowValue">1.124,00 €</span>
     </div>
-
-    <div class="breakdown__content">
-      <p class="breakdown__place">
-        <span class="breakdown__placeName">Marruecos, África</span>
-        <span class="breakdown__placeDays">9 días</span>
-      </p>
-
-      <div class="breakdown__details">
-        <div class="breakdown__row">
-          <span>Precio antes de impuestos</span>
-          <span>1.124,00 €</span>
-        </div>
-        <div class="breakdown__row">
-          <span>Impuesto</span>
-          <span>4,43 €</span>
-        </div>
-        <div class="breakdown__row">
-          <span>Lorem ipsum</span>
-          <span>150,42 €</span>
-        </div>
-      </div>
+    <div class="breakdown__row">
+      <span class="breakdown__rowLabel">Impuesto</span>
+      <span class="breakdown__rowValue">4,43 €</span>
     </div>
-
-    <div class="breakdown__totalPrice">
-      <span>Precio final</span>
-      <span>2.455,00 €</span>
+    <div class="breakdown__row">
+      <span class="breakdown__rowLabel">Lorem ipsum</span>
+      <span class="breakdown__rowValue">150,42 €</span>
     </div>
   </div>
-}
+
+  <div class="breakdown__totalPrice">
+    <span class="breakdown__totalLabel">Precio final</span>
+    <span class="breakdown__totalValue">2.455,00 €</span>
+  </div>
+</wl-modal>

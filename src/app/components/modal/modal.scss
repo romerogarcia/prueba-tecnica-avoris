@@ -1,0 +1,103 @@
+// El host no debe contar como un elemento más en el layout de quien lo use
+// (p.ej. el flex de .card__footerTop): con display:contents desaparece de
+// ese cálculo y solo quedan sus hijos, que además son position:fixed, así
+// que tampoco ocupan espacio en el flujo normal.
+:host {
+   display: contents;
+}
+
+.modal__backdrop {
+   background-color: transparent;
+   inset: 0;
+   position: fixed;
+   z-index: 100;
+}
+
+.modal {
+   background-color: var(--color-white);
+   display: flex;
+   flex-direction: column;
+   inset: 0;
+   overflow-y: auto;
+   position: fixed;
+   z-index: 101;
+
+   &--anchored {
+      @media (min-width: 744px) {
+         border-radius: 12px;
+         box-shadow: 0 12px 32px rgba(26, 26, 26, 0.16);
+         inset: auto;
+         // Con left:0 el popover (400px) colgaba entero hacia la derecha del
+         // Este desplazamiento negativo lo centra aprox. sobre el botón en
+         // vez de arrancar en su borde izquierdo, así queda más hacia la
+         // izquierda. Es un valor fijo (no calculado), así que si hace falta
+         // más o menos desplazamiento basta con ajustar este número.
+         left: -140px;
+         margin-top: 8px;
+         max-width: calc(100vw - 50px);
+         position: absolute;
+         top: 100%;
+         width: 400px;
+
+         .modal__heading {
+            font-size: 18px;
+         }
+
+         .modal__closeBtn {
+            font-size: 20px;
+         }
+      }
+   }
+
+   &--float-left {
+      @media (min-width: 600px) {
+         box-shadow: 4px 0 24px rgba(26, 26, 26, 0.16);
+         inset: 0 auto 0 0;
+         left: 0;
+         position: absolute;
+         width: 296px;
+      }
+      .modal__heading {
+         font-size: 18px;
+         font-weight: 700;
+      }
+      .modal__closeBtn {
+         font-size: 20px;
+      }
+   }
+
+   &__header {
+      align-items: center;
+      background-color: var(--color-bg-pastel);
+      border-bottom: 1px solid #E0DEE3;
+      display: flex;
+      justify-content: space-between;
+      padding: 16px;
+   }
+
+   &--anchored &__header {
+      @media (min-width: 600px) {
+         border-radius: 12px 12px 0 0;
+      }
+   }
+
+   &__heading {
+      color: var(--color-text);
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0;
+   }
+
+   &__closeBtn {
+      background: none;
+      border: none;
+      color: var(--color-text);
+      cursor: pointer;
+      display: flex;
+      padding: 8px;
+   }
+
+   &__content {
+      padding: 20px 16px;
+   }
+}
