@@ -6,16 +6,31 @@
    align-items: center;
    display: flex;
    flex-direction: column;
-   padding: 32px 16px;
+   padding: 24px 16px 56px 16px;
 
    @media (min-width: 744px) {
          padding: 32px 91px;
    }
    
-   @media (min-width: 1200px) {
+   @media (min-width: 1440px) {
       flex: 1 1 0%;
       min-width: 0;
       padding: 32px 0;
+   }
+
+   &__group {
+      width: 100%;
+
+      & + & {
+         margin-top: 24px;
+      }
+   }
+
+   &__groupHeading {
+      color: var(--color-text);
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 16px;
    }
 
    &__cardList {
@@ -24,11 +39,11 @@
       grid-template-columns: 1fr;
       width: 100%;
 
-      @media (min-width: 600px) {
+      @media (min-width: 744px) {
          grid-template-columns: repeat(2, 1fr);
       }
 
-      @media (min-width: 900px) {
+      @media (min-width: 1024px) {
          grid-template-columns: repeat(3, 1fr);
       }
    }

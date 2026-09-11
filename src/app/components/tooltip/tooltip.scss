@@ -14,10 +14,10 @@
 
 .tooltip__bubble {
    background-color: var(--color-white);
-   border: 1px solid #E0DEE3;
+   border: 1px solid var(--color-border);
    border-radius: 4px;
    bottom: calc(100% + 10px);
-   box-shadow: 0 4px 12px rgba(26, 26, 26, 0.16);
+   box-shadow: 0 4px 12px var(--shadow-strong);
    color: var(--color-text);
    font-size: 14px;
    font-weight: 500;
@@ -41,7 +41,7 @@
    }
 
    &::before {
-      border-top: 6px solid #E0DEE3;
+      border-top: 6px solid var(--color-border);
    }
 
    &::after {

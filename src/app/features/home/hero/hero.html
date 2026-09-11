@@ -14,7 +14,11 @@
         <div class="hero__overlay" aria-hidden="true"></div>
 
         <div class="hero__content">
-          <div class="hero__pin" aria-hidden="true"></div>
+          <div class="hero__statusTagContainer">
+            <span class="hero__statusTag">Pending approval</span>
+            <wl-icon name="line-status-tag" class="hero__statusLine" />
+            <wl-icon name="circle-status-tag" class="hero__statusCircle" />
+          </div>
           <h1 class="hero__title">{{ slide.title }}</h1>
           <p class="hero__subtitle">{{ slide.subtitle }}</p>
           <button type="button" class="hero__cta">Más información</button>

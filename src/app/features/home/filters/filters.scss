@@ -13,11 +13,11 @@
       padding: 0 91px 0;
    }
 
-   @media (min-width: 900px) {
+   @media (min-width: 1024px) {
       justify-content: flex-start;
    }
 
-   @media (min-width: 1200px) {
+   @media (min-width: 1440px) {
       display: none;
    }
 }
@@ -25,7 +25,7 @@
 .filters__toggleBtn {
    align-items: center;
    background-color: var(--color-white);
-   border: 1px solid #E0DEE3;
+   border: 1px solid var(--color-border);
    border-radius: var(--radius-pill);
    color: var(--color-text);
    cursor: pointer;
@@ -47,10 +47,10 @@
 .filters__sidebar {
    display: none;
 
-   @media (min-width: 1200px) {
+   @media (min-width: 1440px) {
       background-color: var(--color-white);
       border-radius: 12px;
-      box-shadow: 0 12px 32px rgba(26, 26, 26, 0.16);
+      box-shadow: 0 12px 32px var(--shadow-strong);
       display: block;
       flex-shrink: 0;
       margin-top: 32px;
@@ -61,7 +61,7 @@
 
 .filters__sidebarHeader {
    background-color: var(--color-bg-pastel);
-   border-bottom: 1px solid #E0DEE3;
+   border-bottom: 1px solid var(--color-border);
    padding: 16px;
 }
 
@@ -123,7 +123,7 @@ span.filters__rowIcon {
    -webkit-mask-position: center;
    -webkit-mask-repeat: no-repeat;
    -webkit-mask-size: contain;
-   background-color: #342E34;
+   background-color: var(--color-charcoal);
    mask-image: var(--row-icon-url);
    mask-position: center;
    mask-repeat: no-repeat;
@@ -168,7 +168,7 @@ span.filters__rowIcon {
    display: flex;
    gap: 8px;
    margin: -6px 0;
-   padding: 12px 0;
+   padding: 12px 0 12px 16px;
 
    input[type='checkbox'] {
       appearance: none;

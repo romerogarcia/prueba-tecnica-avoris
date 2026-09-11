@@ -58,6 +58,17 @@ export class Modal {
   }
 
   private clampToViewport(panelEl: HTMLElement): void {
+    // Esta lógica solo tiene sentido en la variante anchored real (desde
+    // 744px, position:absolute vía CSS). En mobile el modal es pantalla
+    // completa (position:fixed) y no hay nada que "encajar": si lo dejamos
+    // correr igualmente, mide el modal fullscreen (left:0), cree que se sale
+    // por la izquierda y le mete un translateX que lo desplaza y lo hace
+    // desbordar por la derecha, comiéndose el padding.
+    if (getComputedStyle(panelEl).position !== 'absolute') {
+      this.anchoredOffsetX.set(0);
+      return;
+    }
+
     const rect = panelEl.getBoundingClientRect();
 
     if (rect.left < ANCHORED_EDGE_MARGIN) {

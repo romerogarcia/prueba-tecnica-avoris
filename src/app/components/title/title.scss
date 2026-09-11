@@ -5,7 +5,11 @@
     justify-content: center;
     text-align: center;
     gap: 16px;
-    padding: 56px;
+    padding: 56px 32px;
+
+    @media (min-width: 744px) {
+        padding: 56px 24px;
+    }
 
     &__headingTitle {
         font-family: var(--font-display);
@@ -16,7 +20,7 @@
     }
 
     &__subtitle {
-        color: #6B7D8D;
+        color: var(--color-slate);
         font-family: var(--font-base);
         font-weight: 700;
         font-size: 20px;

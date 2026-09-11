@@ -25,7 +25,7 @@
 }
 
 .breakdown__details {
-   border-bottom: 1px solid #E0DEE3;
+   border-bottom: 1px solid var(--color-border);
    display: flex;
    flex-direction: column;
    gap: 16px;
@@ -43,22 +43,45 @@
    }
 }
 
+.breakdown__rowLabel {
+   font-size: 16px;
+   line-height: 22px;
+
+   @media (min-width: 744px) {
+      line-height: normal;
+   }
+}
+
 .breakdown__rowValue {
+   font-size: 18px;
+   line-height: 20px;
+
    @media (min-width: 744px) {
       font-size: 18px;
+      line-height: normal;
    }
 }
 
 .breakdown__totalPrice {
    color: var(--color-text);
    display: flex;
-   font-size: 16px;
+   font-size: 22px;
    font-weight: 700;
+   line-height: 24px;
    justify-content: space-between;
    margin-top: 20px;
 
    @media (min-width: 744px) {
       font-size: 18px;
+      line-height: 24px;
+   }
+}
+
+.breakdown__totalLabel {
+   font-size: 18px;
+   line-height: 22px;
+
+   @media (min-width: 744px) {
       line-height: 24px;
    }
 }

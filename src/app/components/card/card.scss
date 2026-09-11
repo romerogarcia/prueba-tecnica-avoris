@@ -4,9 +4,9 @@
 
 .card {
    background-color: var(--color-white);
-   border: 1px solid #E0DEE3;
+   border: 1px solid var(--color-border);
    border-radius: 24px;
-   box-shadow: 0 8px 24px rgba(26, 26, 26, 0.08); // aprox., ajusta si no coincide con el Figma
+   box-shadow: 0 8px 24px var(--shadow-soft);
 
    &__media {
       position: relative;
@@ -40,7 +40,12 @@
       color: var(--color-purple);
       font-size: 14px;
       line-height: 18px;
+      font-weight: 700;
       margin: 0;
+   }
+
+   &__days {
+      color: var(--color-charcoal);
    }
 
    &__title {
@@ -51,12 +56,6 @@
       margin: 4px 0 0;
    }
 
-   // El footer es un grid de 2 columnas x 2 filas: en mobile "Ver desglose" y
-   // el precio van en la fila de arriba (uno a cada lado) y "Reservar" ocupa
-   // toda la fila de abajo. En tablet+ (744px) se reordena: el precio y
-   // "Reservar" pasan a compartir la fila de arriba, y "Ver desglose" baja
-   // solo a la fila de abajo. El orden en el HTML no cambia, solo dónde
-   // coloca cada pieza el grid (grid-template-areas).
    &__footer {
       align-items: end;
       background-color: var(--color-bg-pastel);
@@ -69,11 +68,8 @@
       grid-template-columns: 1fr auto;
       margin-top: 16px;
       padding: 16px;
-      row-gap: 16px;
+      row-gap: 12px;
 
-      // "reserve" pasa a ocupar las 2 filas (columna derecha entera), así que
-      // queda alineado abajo, a la misma altura que "Ver desglose" — que aquí
-      // se apila justo debajo del precio, en la misma columna izquierda.
       @media (min-width: 744px) {
          grid-template-areas:
             "price reserve"
@@ -97,13 +93,14 @@
       font-family: inherit;
       font-size: 14px;
       gap: 4px;
-      // padding para llegar al tamaño mínimo de touch target (24px, WCAG 2.5.8);
-      // el margin negativo compensa para que no se mueva visualmente el texto.
       margin: -6px -4px;
       padding: 6px 4px;
       text-decoration: underline;
-      white-space: nowrap; // en tablet+ va en la columna estrecha, junto al
-                            // precio; sin esto "Ver desglose" se parte en 2 líneas.
+      white-space: nowrap;
+
+      fa-icon {
+         font-size: 8px;
+      }
    }
 
    &__price {
@@ -111,11 +108,9 @@
       flex-direction: column;
       grid-area: price;
       justify-self: end;
-      text-align: right;
 
       @media (min-width: 744px) {
          justify-self: start;
-         text-align: left;
       }
    }
 
@@ -130,9 +125,7 @@
       font-size: 22px;
       line-height: 24px;
       font-weight: 700;
-      white-space: nowrap; // en tablet+ comparte fila con "Reservar" y hay
-                            // menos ancho disponible; sin esto "248,00 €"
-                            // parte el € a una segunda línea.
+      white-space: nowrap;
    }
 
    &__reserveBtn {
@@ -145,11 +138,9 @@
       font-size: 16px;
       font-weight: 600;
       grid-area: reserve;
-      padding: 12px;
+      padding: 8px;
       width: 100%;
 
-      // Al compartir fila con el precio en vez de ir sola, ya no ocupa todo
-      // el ancho: se ajusta a su contenido, con algo más de aire lateral.
       @media (min-width: 744px) {
          padding: 12px 24px;
          width: auto;

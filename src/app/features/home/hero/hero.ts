@@ -2,6 +2,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, viewChild } from '@angul
 import { register } from 'swiper/element/bundle';
 import type { SwiperContainer } from 'swiper/element';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { Icon } from '../../../components/icon/icon';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 // Registra los custom elements <swiper-container>/<swiper-slide> una sola vez.
@@ -15,7 +16,7 @@ interface HeroSlide {
 
 @Component({
   selector: 'wl-hero',
-  imports: [FaIconComponent],
+  imports: [FaIconComponent, Icon],
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
   // Necesario porque <swiper-container>/<swiper-slide> son Web Components,
@@ -50,8 +51,8 @@ export class Hero {
       background: transparent;
     }
     .swiper-pagination-bullet::after {
-      background-color: var(--swiper-pagination-bullet-inactive-color, #fff);
-      border: 1px solid var(--color-white, #fff);
+      background-color: transparent;
+      border: 1.5px solid var(--color-white, #fff);
       border-radius: 50%;
       box-sizing: border-box;
       content: '';
