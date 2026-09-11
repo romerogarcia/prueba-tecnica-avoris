@@ -1,3 +1,5 @@
+@use 'styles' as bp;
+
 :host {
    display: block;
 }
@@ -6,7 +8,7 @@
    background-color: var(--color-white);
    border: 1px solid var(--color-border);
    border-radius: 24px;
-   box-shadow: 0 8px 24px var(--shadow-soft);
+   box-shadow: 0 0 24px var(--shadow-soft);
 
    &__media {
       position: relative;
@@ -70,7 +72,7 @@
       padding: 16px;
       row-gap: 12px;
 
-      @media (min-width: 744px) {
+      @media (min-width: bp.$breakpoint-tablet) {
          grid-template-areas:
             "price reserve"
             "details reserve";
@@ -109,7 +111,7 @@
       grid-area: price;
       justify-self: end;
 
-      @media (min-width: 744px) {
+      @media (min-width: bp.$breakpoint-tablet) {
          justify-self: start;
       }
    }
@@ -141,7 +143,7 @@
       padding: 8px;
       width: 100%;
 
-      @media (min-width: 744px) {
+      @media (min-width: bp.$breakpoint-tablet) {
          padding: 12px 24px;
          width: auto;
       }

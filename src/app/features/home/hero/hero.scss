@@ -1,3 +1,5 @@
+@use 'styles' as bp;
+
 .hero {
    height: 400px;
    overflow: hidden;
@@ -13,7 +15,7 @@
       --swiper-pagination-bullet-inactive-opacity: 0.6;
       --swiper-pagination-bullet-horizontal-gap: 4px;
 
-      @media (min-width: 744px) {
+      @media (min-width: bp.$breakpoint-tablet) {
          --swiper-pagination-bottom: 32px;
       }
    }
@@ -58,13 +60,13 @@
       top: 24px;
       z-index: 2;
 
-      @media (min-width: 744px) {
+      @media (min-width: bp.$breakpoint-tablet) {
          flex-direction: column-reverse;
          bottom: 50px;
          left: 40px;
       }
 
-      @media (min-width: 1024px) {
+      @media (min-width: bp.$breakpoint-desktop) {
          display: none;
       }
    }
@@ -101,10 +103,10 @@
       font-weight: 700;
       margin: 0;
       max-width: 230px;
-         @media (min-width: 744px) {
+         @media (min-width: bp.$breakpoint-tablet) {
             max-width: none;
          }
-         @media (min-width: 1440px) {
+         @media (min-width: bp.$breakpoint-wide) {
             font-size: 30px;
          }
    }
@@ -114,10 +116,10 @@
       margin: 12px 0 0;
       max-width: 230px;
       font-size: 24px;
-         @media (min-width: 744px) {
+         @media (min-width: bp.$breakpoint-tablet) {
             max-width: none;
          }
-          @media (min-width: 1440px) {
+          @media (min-width: bp.$breakpoint-wide) {
             font-size: 20px;
          }
    }
@@ -135,7 +137,7 @@
       padding: 14px 32px;
       width: 246px;
 
-      @media (min-width: 744px) {
+      @media (min-width: bp.$breakpoint-tablet) {
             width: 200px;
             font-size: 16px;
          }

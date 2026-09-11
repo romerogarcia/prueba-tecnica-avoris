@@ -1,15 +1,4 @@
-<!--
-  wl-filters tiene dos presentaciones que comparten el mismo formulario
-  (definido una sola vez en #filtersContent y reutilizado con
-  ngTemplateOutlet, para no duplicar el acordeón):
-  - Hasta 1199px: botón "Ver filtros" + wl-modal (variante floatLeft).
-  - Desde 1200px: aside estático siempre visible, a la izquierda de
-    wl-results (ver .filters__sidebar en filters.scss). CSS decide cuál de
-    las dos se ve en cada ancho, las dos existen siempre en el DOM.
-  El :host es display:contents (ver filters.scss), así que estos elementos
-  se comportan como hijos directos de quien use <wl-filters />, sin una
-  caja extra de por medio.
--->
+
 <ng-template #filtersContent>
   <form class="filters" (submit)="onSubmit($event)">
     <div class="filters__section">

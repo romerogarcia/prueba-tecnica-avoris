@@ -1,3 +1,4 @@
+
 :root {
   --color-orange: #FF8F50;
   --color-orange-text: #B85C28;
@@ -12,6 +13,7 @@
   --color-divider: rgb(221, 221, 221);
   --color-slate: #6B7D8D;
   --color-background-gray: #E0D9E0;
+  --color-background-gray02: #FAF7F5;
   --color-charcoal: #342E34;
   --color-lavender: #ccbccc;
   --color-blush: #E2D7DD;
@@ -25,6 +27,11 @@
   --radius-pill: 999px;
   --radius-card: 8px;
 }
+
+/* Resoluciones */
+$breakpoint-tablet: 744px;
+$breakpoint-desktop: 1024px;
+$breakpoint-wide: 1440px;
 
 /* Reset */
 *, *::before, *::after {

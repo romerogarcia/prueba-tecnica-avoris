@@ -1,3 +1,5 @@
+@use 'styles' as bp;
+
 .footer {
    border-top: 1px solid var(--color-divider);
 
@@ -8,7 +10,7 @@
       justify-content: start;
       padding: 48px 32px;
 
-      @media (min-width: 1024px) {
+      @media (min-width: bp.$breakpoint-desktop) {
          justify-content: center;
       }
    }

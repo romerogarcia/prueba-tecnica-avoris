@@ -1,3 +1,5 @@
+@use 'styles' as bp;
+
 :host {
   display: flex;
   flex-direction: column;
@@ -13,7 +15,7 @@ main {
 }
 
 .app__resultsRow {
-  @media (min-width: 1440px) {
+  @media (min-width: bp.$breakpoint-wide) {
     align-items: flex-start;
     display: flex;
     gap: 24px;
