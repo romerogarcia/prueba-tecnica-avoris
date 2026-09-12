@@ -43,6 +43,7 @@
    }
 
    &--float-left {
+      background-color: var(--color-bg-pastel);
       @media (min-width: bp.$breakpoint-tablet) {
          box-shadow: 4px 0 24px var(--shadow-strong);
          inset: 0 auto 0 0;
@@ -73,7 +74,7 @@
       display: flex;
       font-family: var(--font-display);
       justify-content: space-between;
-      padding: 16px 24px;
+      padding: 28px 24px;
    }
 
    &--anchored &__header {

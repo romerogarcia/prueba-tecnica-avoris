@@ -62,18 +62,20 @@
 .filters__sidebarHeader {
    background-color: var(--color-bg-pastel);
    border-bottom: 1px solid var(--color-border);
-   padding: 16px;
+   padding: 28px 24px;
 }
 
 .filters__sidebarHeading {
+   font-family: var(--font-display);
    color: var(--color-text);
-   font-size: 1rem;
+   font-size: 1.125rem;
    font-weight: 700;
    margin: 0;
 }
 
 .filters__sidebarContent {
    padding: 20px 16px;
+   background-color: var(--color-bg-pastel);
 }
 
 .filters {
