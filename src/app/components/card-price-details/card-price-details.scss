@@ -15,14 +15,14 @@
 .breakdown__placeName {
    color: var(--color-purple);
    font-family: var(--font-display);
-   font-size: 18px;
+   font-size: 1.125rem;
    line-height: 22px;
    font-weight: 700;
 }
 
 .breakdown__placeDays {
    color: var(--color-text);
-   font-size: 14px;
+   font-size: 0.875rem;
    line-height: 24px;
 }
 
@@ -36,16 +36,16 @@
 .breakdown__row {
    color: var(--color-text);
    display: flex;
-   font-size: 14px;
+   font-size: 0.875rem;
    justify-content: space-between;
 
    @media (min-width: bp.$breakpoint-tablet) {
-      font-size: 16px;
+      font-size: 1rem;
    }
 }
 
 .breakdown__rowLabel {
-   font-size: 16px;
+   font-size: 1rem;
    line-height: 22px;
 
    @media (min-width: bp.$breakpoint-tablet) {
@@ -54,12 +54,12 @@
 }
 
 .breakdown__rowValue {
-   font-size: 18px;
+   font-size: 1.125rem;
    font-weight: 700;
    line-height: 20px;
 
    @media (min-width: bp.$breakpoint-tablet) {
-      font-size: 18px;
+      font-size: 1.125rem;
       line-height: normal;
    }
 }
@@ -69,7 +69,7 @@
    background-color: var(--color-white);
    color: var(--color-text);
    display: flex;
-   font-size: 22px;
+   font-size: 1.375rem;
    font-weight: 700;
    line-height: 24px;
    justify-content: space-between;
@@ -77,13 +77,13 @@
 
    @media (min-width: bp.$breakpoint-tablet) {
       background-color: var(--color-bg-pastel);
-      font-size: 18px;
+      font-size: 1.125rem;
       line-height: 24px;
    }
 }
 
 .breakdown__totalLabel {
-   font-size: 18px;
+   font-size: 1.125rem;
    line-height: 22px;
 
    @media (min-width: bp.$breakpoint-tablet) {
@@ -95,6 +95,6 @@
    font-weight: 700;
 
    @media (min-width: bp.$breakpoint-tablet) {
-      font-size: 22px;
+      font-size: 1.375rem;
    }
 }

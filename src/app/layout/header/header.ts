@@ -1,8 +1,5 @@
 import { Component, signal } from '@angular/core';
 
-// Los 4 links del nav principal. Un union type (mismo patron que
-// FilterSection en wl-filters) para que el compilador avise si se escribe
-// mal un nombre de link en la plantilla.
 type NavLink = 'aventura' | 'destinos' | 'alojamiento' | 'sobre-nosotros';
 
 @Component({
@@ -12,11 +9,15 @@ type NavLink = 'aventura' | 'destinos' | 'alojamiento' | 'sobre-nosotros';
   styleUrl: './header.scss',
 })
 export class Header {
-  // Arranca sin ningun link seleccionado (null), no "aventura" por defecto:
-  // el estado activo solo aparece tras un clic del usuario.
   protected readonly activeLink = signal<NavLink | null>(null);
+  protected readonly isMenuOpen = signal(false);
 
   protected setActiveLink(link: NavLink): void {
     this.activeLink.set(link);
+    this.isMenuOpen.set(false);
+  }
+
+  protected toggleMenu(): void {
+    this.isMenuOpen.update((open) => !open);
   }
 }

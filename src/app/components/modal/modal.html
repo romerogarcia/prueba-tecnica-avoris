@@ -7,6 +7,7 @@
     [class.modal--anchored]="anchored()"
     [class.modal--float-left]="floatLeft()"
     [style.transform]="anchoredOffsetX() ? 'translateX(' + anchoredOffsetX() + 'px)' : null"
+    tabindex="-1"
     role="dialog"
     aria-modal="true"
     [attr.aria-labelledby]="headingId"
@@ -21,11 +22,7 @@
     <div class="modal__content">
       <ng-content></ng-content>
     </div>
-
-    <!-- Sección opcional e independiente del contenido con scroll, para un
-         footer con fondo propio (ej. el precio final del desglose). Si el
-         que usa <wl-modal /> no proyecta nada con [modalFooter], este
-         ng-content no renderiza nada. -->
+    
     <ng-content select="[modalFooter]"></ng-content>
   </div>
 }

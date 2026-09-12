@@ -33,11 +33,11 @@
          width: 400px;
 
          .modal__heading {
-            font-size: 18px;
+            font-size: 1.125rem;
          }
 
          .modal__closeBtn {
-            font-size: 20px;
+            font-size: 1.25rem;
          }
       }
    }
@@ -51,11 +51,11 @@
          width: 296px;
       }
       .modal__heading {
-         font-size: 18px;
+         font-size: 1.125rem;
          font-weight: 700;
       }
       .modal__closeBtn {
-         font-size: 20px;
+         font-size: 1.25rem;
       }
    }
 
@@ -85,7 +85,7 @@
    &__heading {
       color: var(--color-text);
       font-family: var(--font-display);
-      font-size: 16px;
+      font-size: 1rem;
       font-weight: 700;
       margin: 0;
    }

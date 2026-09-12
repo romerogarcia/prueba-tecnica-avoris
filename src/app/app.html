@@ -1,17 +1,12 @@
-<!--
-  app.html es solo la composición de la página: aquí no va marcado propio,
-  solo las etiquetas de los componentes en el orden en que aparecen en la home.
-  El contenido y estilo de cada bloque vive en su propio componente (src/app/components/*).
--->
 <wl-header />
 
 <main>
   <wl-hero />
   <div class="app__content">
     <wl-title />
-    <div class="app__resultsRow">
+    <div class="app__filterResultsRow">
       <wl-filters />
-      <wl-results />
+      <wl-filter-results />
     </div>
   </div>
 </main>

@@ -14,7 +14,7 @@ main {
   position: relative;
 }
 
-.app__resultsRow {
+.app__filterResultsRow {
   @media (min-width: bp.$breakpoint-wide) {
     align-items: flex-start;
     display: flex;

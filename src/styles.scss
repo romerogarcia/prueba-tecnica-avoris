@@ -6,7 +6,6 @@
   --color-pink: #C14D8A;
   --color-bg-pastel: #FBF6F4; 
   --color-text: #1A1A1A;
-  --color-text-secondary: #8A8A8D;
   --color-text-tertiary : #817781;
   --color-white: #FFFFFF;
   --color-border: #E0DEE3;
@@ -16,7 +15,6 @@
   --color-background-gray02: #FAF7F5;
   --color-charcoal: #342E34;
   --color-lavender: #ccbccc;
-  --color-blush: #E2D7DD;
   --color-overlay: rgba(0, 0, 0, 0.45);
   --shadow-soft: rgba(26, 26, 26, 0.08);
   --shadow-strong: rgba(26, 26, 26, 0.16);
@@ -59,4 +57,20 @@ body {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+.btn-primary {
+  border: none;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.btn-secondary {
+  background-color: var(--color-white);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
 }

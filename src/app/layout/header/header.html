@@ -4,7 +4,7 @@
       <img class="header__logoIcon" src="/img/logo-waveless.png" alt="Logo de la web Waveless">
     </a>
 
-    <nav class="header__nav" id="header-nav" aria-label="Navegación principal">
+    <nav class="header__nav" [class.header__nav--open]="isMenuOpen()" id="header-nav" aria-label="Navegación principal">
       <ul class="header__links">
         <li>
           <a
@@ -55,8 +55,15 @@
         </li>
       </ul>
     </nav>
-    <button type="button" class="header__btnReserva">Reserva</button>
-    <button type="button" class="header__btnBurguer" aria-hidden="true" tabindex="-1">
+    <button type="button" class="header__btn btn-primary">Reserva</button>
+    <button
+      type="button"
+      class="header__btnBurguer"
+      [attr.aria-expanded]="isMenuOpen()"
+      aria-controls="header-nav"
+      [attr.aria-label]="isMenuOpen() ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'"
+      (click)="toggleMenu()"
+    >
       <img class="header__iconMenu" src="/icons/icon-menu-burguer.svg" alt="">
     </button>
   </div>

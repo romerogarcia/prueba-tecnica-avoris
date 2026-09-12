@@ -3,6 +3,7 @@
   .header {
       background-color: var(--color-white);
       border-bottom: 1px solid var(--color-orange);
+      position: relative;
 
       &__bar {
          align-items: center;
@@ -25,22 +26,45 @@
 
       &__nav {
          display: none;
-         flex-direction: row;
+         flex-direction: column;
          align-self: stretch;
+         position: absolute;
+         top: 100%;
+         left: 0;
+         right: 0;
+         background-color: var(--color-white);
+         border-bottom: 1px solid var(--color-orange);
+         box-shadow: 0 8px 16px var(--shadow-soft);
+         z-index: 20;
+
+         &--open {
+            display: flex;
+         }
 
          @media (min-width: bp.$breakpoint-desktop) {
             display: flex;
+            flex-direction: row;
+            position: static;
+            background-color: transparent;
+            border-bottom: none;
+            box-shadow: none;
          }
       }
 
       &__links {
          display: flex;
-         flex-direction: row;
+         flex-direction: column;
          align-items: stretch;
-         gap: 16px;
+         gap: 0;
          list-style: none;
          margin: 0;
-         padding: 0;
+         padding: 8px 16px 16px;
+
+         @media (min-width: bp.$breakpoint-desktop) {
+            flex-direction: row;
+            gap: 16px;
+            padding: 0;
+         }
 
          @media (min-width: bp.$breakpoint-wide) {
             gap: 72px;
@@ -58,7 +82,7 @@
          color: var(--color-text);
          text-decoration: none;
          font-weight: 400;
-         font-size: 16px;
+         font-size: 1rem;
          padding: 12px;
          position: relative;
       }
@@ -66,27 +90,31 @@
       &__link--active {
          font-weight: 700;
 
-         &::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -16px;
-            height: 2px;
-            background-color: var(--color-orange);
-         }
+         // El subrayado naranja + triángulo solo tiene sentido bajo el nav
+         // horizontal de desktop; en el desplegable mobile/tablet no se pinta.
+         @media (min-width: bp.$breakpoint-desktop) {
+            &::before {
+               content: '';
+               position: absolute;
+               left: 0;
+               right: 0;
+               bottom: -16px;
+               height: 2px;
+               background-color: var(--color-orange);
+            }
 
-         &::after {
-            content: '';
-            position: absolute;
-            bottom: -16px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-bottom: 12px solid var(--color-orange);
+            &::after {
+               content: '';
+               position: absolute;
+               bottom: -16px;
+               left: 50%;
+               transform: translateX(-50%);
+               width: 0;
+               height: 0;
+               border-left: 10px solid transparent;
+               border-right: 10px solid transparent;
+               border-bottom: 12px solid var(--color-orange);
+            }
          }
       }
 
@@ -103,16 +131,11 @@
          font-weight: 600;
       }
 
-      &__btnReserva {
+      &__btn {
          display: none;
          background-color: var(--color-purple);
-         border: 1px solid var(--color-purple);
-         border-radius: var(--radius-pill);
          color: var(--color-white);
-         cursor: pointer;
-         font-family: inherit;
          font-size: 1rem;
-         font-weight: 600;
          padding: 12px 32px;
 
          @media (min-width: bp.$breakpoint-desktop) {
@@ -125,6 +148,11 @@
          border: none;
          background: none;
          cursor: pointer;
+
+         &:focus-visible {
+            outline: 2px solid var(--color-purple);
+            outline-offset: 2px;
+         }
 
          @media (min-width: bp.$breakpoint-desktop) {
             display: none;

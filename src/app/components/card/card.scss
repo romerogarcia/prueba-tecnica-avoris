@@ -26,7 +26,7 @@
       background-color: var(--color-orange);
       border-radius: var(--radius-pill);
       color: var(--color-text);
-      font-size: 12px;
+      font-size: 0.75rem;
       font-weight: 700;
       padding: 4px 12px;
       position: absolute;
@@ -40,7 +40,7 @@
 
    &__place {
       color: var(--color-purple);
-      font-size: 14px;
+      font-size: 0.875rem;
       line-height: 18px;
       font-weight: 700;
       margin: 0;
@@ -52,7 +52,7 @@
 
    &__title {
       color: var(--color-text);
-      font-size: 18px;
+      font-size: 1.125rem;
       font-weight: 700;
       line-height: 22px;
       margin: 4px 0 0;
@@ -93,7 +93,7 @@
       cursor: pointer;
       display: inline-flex;
       font-family: inherit;
-      font-size: 14px;
+      font-size: 0.875rem;
       gap: 4px;
       margin: -6px -4px;
       padding: 6px 4px;
@@ -101,7 +101,7 @@
       white-space: nowrap;
 
       fa-icon {
-         font-size: 8px;
+         font-size: 0.5rem;
       }
    }
 
@@ -118,27 +118,22 @@
 
    &__priceLabel {
       color: var(--color-text);
-      font-size: 12px;
+      font-size: 0.75rem;
       line-height: 18px;
    }
 
    &__priceValue {
       color: var(--color-text);
-      font-size: 22px;
+      font-size: 1.375rem;
       line-height: 24px;
       font-weight: 700;
       white-space: nowrap;
    }
 
    &__reserveBtn {
-      background-color: var(--color-white);
       border: 1px solid var(--color-purple);
-      border-radius: var(--radius-pill);
       color: var(--color-purple);
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 16px;
-      font-weight: 600;
+      font-size: 1rem;
       grid-area: reserve;
       padding: 8px;
       width: 100%;

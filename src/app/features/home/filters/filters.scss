@@ -31,7 +31,7 @@
    cursor: pointer;
    display: inline-flex;
    font-family: inherit;
-   font-size: 20px;
+   font-size: 1.25rem;
    font-weight: 600;
    gap: 8px;
    padding: 8px 14px;
@@ -53,7 +53,7 @@
       box-shadow: 0 12px 32px var(--shadow-strong);
       display: block;
       flex-shrink: 0;
-      margin-top: 32px;
+      margin-top: 72px;
       overflow: hidden;
       width: 264px;
    }
@@ -67,7 +67,7 @@
 
 .filters__sidebarHeading {
    color: var(--color-text);
-   font-size: 16px;
+   font-size: 1rem;
    font-weight: 700;
    margin: 0;
 }
@@ -137,7 +137,7 @@ span.filters__rowIcon {
 .filters__rowLabel {
    color: inherit;
    flex: 1;
-   font-size: 16px;
+   font-size: 1rem;
    font-weight: 600;
    text-align: left;
 }
@@ -145,7 +145,7 @@ span.filters__rowIcon {
 .filters__rowChevron {
    color: inherit;
    flex-shrink: 0;
-   font-size: 14px;
+   font-size: 0.875rem;
 }
 
 .filters__fieldset {
@@ -201,7 +201,7 @@ span.filters__rowIcon {
 
 .filters__checkboxLabel {
    color: var(--color-text);
-   font-size: 14px;
+   font-size: 0.875rem;
    line-height: 22px;
    font-weight: 600;
 }
@@ -219,7 +219,7 @@ span.filters__rowIcon {
    color: var(--color-purple);
    cursor: pointer;
    font-family: inherit;
-   font-size: 14px;
+   font-size: 0.875rem;
    margin: 16px 0 -6px;
    padding: 6px 0;
    text-decoration: underline;
@@ -261,11 +261,16 @@ span.filters__rowIcon {
    color: var(--color-text-tertiary);
    flex: 1;
    font-family: inherit;
-   font-size: 14px;
+   font-size: 0.875rem;
    min-width: 0;
    outline: none;
 
    &::placeholder {
       color: var(--color-text-tertiary);
+   }
+
+   &:focus-visible {
+      outline: 2px solid var(--color-purple);
+      outline-offset: 2px;
    }
 }

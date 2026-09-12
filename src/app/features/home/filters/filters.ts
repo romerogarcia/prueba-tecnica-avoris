@@ -25,7 +25,7 @@ type FilterSection = 'destinos' | 'aventura' | 'alojamiento' | 'precio';
 // formulario (comparten contenido vía <ng-template #filtersContent>, ver
 // filters.html): hasta 1199px es un botón "Ver filtros" + wl-modal
 // (variante floatLeft); desde 1200px es un aside estático siempre visible,
-// a la izquierda de wl-results. Así puede vivir como hermano de wl-results
+// a la izquierda de wl-filter-results. Así puede vivir como hermano de wl-filter-results
 // en app.html sin que este último sepa nada de aperturas ni modales.
 //
 // De momento el filtrado en sí sigue sin lógica real (los checkboxes y los

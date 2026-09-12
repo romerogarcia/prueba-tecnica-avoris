@@ -5,7 +5,6 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { Icon } from '../../../components/icon/icon';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
-// Registra los custom elements <swiper-container>/<swiper-slide> una sola vez.
 register();
 
 interface HeroSlide {
@@ -19,8 +18,6 @@ interface HeroSlide {
   imports: [FaIconComponent, Icon],
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
-  // Necesario porque <swiper-container>/<swiper-slide> son Web Components,
-  // no componentes Angular: sin esto, el compilador los marca como error.
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class Hero {
@@ -29,13 +26,6 @@ export class Hero {
 
   protected readonly swiperRef = viewChild<ElementRef<SwiperContainer>>('swiperEl');
 
-  // Los puntos de paginación viven en el Shadow DOM de <swiper-container>, así que
-  // el CSS normal de hero.scss no les llega. injectStyles es la vía que da Swiper
-  // para meter CSS ahí dentro.
-  // El círculo visible se queda pequeño (10px, como en el diseño), pero la zona
-  // clicable real pasa a 24x24px: si no, axe/Lighthouse lo marcan como "touch
-  // target" insuficiente (mínimo 24px, WCAG 2.5.8). El punto de verdad (::after)
-  // va centrado dentro de esa caja invisible más grande.
   protected readonly paginationStyles = [
     `
     .swiper-pagination-bullet {
@@ -68,9 +58,6 @@ export class Hero {
     `,
   ];
 
-  // De momento repetimos la misma imagen/textos en los 3 slides (solo tienes
-  // background-img-hero.png). En cuanto tengas más imágenes/destinos, cambia
-  // el image/title/subtitle de cada uno para que cada slide sea distinto.
   protected readonly slides: HeroSlide[] = [
     {
       title: 'Ruta por Australia',
@@ -78,13 +65,13 @@ export class Hero {
       image: '/img/background-img-hero.png',
     },
     {
-      title: 'Ruta por Australia',
-      subtitle: 'Si te va la aventura, no te lo puedes perder',
+      title: 'Lorem Ipsum',
+      subtitle: 'Lorem ipsum dolor sit amet consectetur adipiscing',
       image: '/img/background-img-hero.png',
     },
     {
-      title: 'Ruta por Australia',
-      subtitle: 'Si te va la aventura, no te lo puedes perder',
+      title: 'Lorem Ipsum',
+      subtitle: 'Lorem ipsum dolor sit amet consectetur adipiscing',
       image: '/img/background-img-hero.png',
     },
   ];
